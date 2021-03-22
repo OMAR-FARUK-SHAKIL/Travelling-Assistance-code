@@ -1,0 +1,19 @@
+[
+    {
+        "vehicle": "Bike",
+        "image": "https://imgd.aeplcdn.com/476x268/bw/ec/15278/Royal-Enfield-Classic-350-Side-87562.jpg?v=201711021421&q=70"
+    },
+
+    {
+        "vehicle": "Car",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/2013-2016_Toyota_Corolla_%28ZRE172R%29_SX_sedan_%282018-09-17%29_01.jpg/300px-2013-2016_Toyota_Corolla_%28ZRE172R%29_SX_sedan_%282018-09-17%29_01.jpg"
+    },
+    {
+        "vehicle": "Bus",
+        "image": "https://etimg.etb2bimg.com/photo/71442867.cms"
+    },
+    {
+        "vehicle": "Train",
+        "image": "https://ichef.bbci.co.uk/news/624/cpsprodpb/782C/production/_110046703_gettyimages-175800489.jpg"
+    }
+]
