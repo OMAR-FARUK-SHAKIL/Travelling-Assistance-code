@@ -6,6 +6,8 @@ import { UserContext } from "../../App";
 
 const CheckOut = () => {
     // var date = new Date();
+    // const {vehicle,image,rent} = props.vehicle;
+    // console.log(props);
 
     const [travellingData,setTravellingData]=useState({});
     const [showForm,setShowForm] = useState(true)

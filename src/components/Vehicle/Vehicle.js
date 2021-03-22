@@ -26,7 +26,7 @@ const Vehicle = (props) => {
 
 
     const cardStyle = useCardStyles();
-    const { vehicle, image } = props.team;
+    const { vehicle, image } = props.vehicle;
     // console.log(props);
     return (
         < div >

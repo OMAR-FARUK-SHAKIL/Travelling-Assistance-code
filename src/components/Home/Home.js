@@ -60,8 +60,8 @@ const Home = () => {
         <main>
                 <Container className={classes.container} maxWidth="xl">
                     <Grid container spacing={3}>
-                        {vehicles.map((team) => (
-                            <Vehicle team={team} lg={4} sm={6} xs={12} spacing={2} ></Vehicle>
+                        {vehicles.map((vehicle) => (
+                            <Vehicle vehicle={vehicle} lg={4} sm={6} xs={12} spacing={2} ></Vehicle>
                         ))}
                     </Grid>
                 </Container>

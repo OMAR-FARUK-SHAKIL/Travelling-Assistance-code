@@ -1,4 +1,7 @@
 import React, { useState,useContext } from 'react';
+import firebase from 'firebase/app'
+import "firebase/auth";
+import firebaseConfig from './firebase.config';
 // import { useContext } from 'react';
 // import { UserContext } from '../../App';
 // import { useHistory, useLocation } from 'react-router-dom';
@@ -70,12 +73,25 @@ function Login() {
   }
   const handleSubmit = (e) => {
     // newUser &&
-    if( user.email && user.password){
-      createUserWithEmailAndPassword( user.email, user.password)     
-      .then(res => {
-          console.log('res=', res);
-        handleResponse(res, true);
-      })
+    console.log("newuser=",newUser,"email:",user.email,"pass",user.password);
+
+    if( newUser && user.email && user.password){
+    //   createUserWithEmailAndPassword( user.email, user.password)     
+    //   .then(res => {
+    //       console.log('res=', res);
+    //     handleResponse(res, true);
+    //   })
+
+    firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+  .then((userCredential) => {
+    var user = userCredential.user;
+    handleResponse(user, true);
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode,errorMessage)
+  });
     }
 
     if(!newUser && user.email && user.password){
@@ -102,8 +118,9 @@ function Login() {
         <br/>
         <input type="password" name="password" onBlur={handleBlur} placeholder="Your Password" required/>
         <br/>
-        <input type="submit" value={newUser ? 'Sign up' : 'Sign in'}/>
+        <input type="submit" value={newUser ? 'Create an account' :'Log in'}/>
       </form>
+
       { user.error &&
        <p style={{color: 'red'}}>User email/password Invalid</p>}
    
