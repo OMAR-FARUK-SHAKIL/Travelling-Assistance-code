@@ -62,20 +62,22 @@ export const handleGoogleSignIn = () => {
   }
 
  export const createUserWithEmailAndPassword = (name, email, password) => {
-    return firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then( res => {
-      const newUserInfo = res.user;
-      newUserInfo.error = '';
-      newUserInfo.success = true;
-      updateUserName(name);
-      return newUserInfo;
-    })
-    .catch( error => {
-      const newUserInfo = {};
-      newUserInfo.error = error.message;
-      newUserInfo.success = false;
-      return newUserInfo;
-    });
+   
+    // return firebase.auth().createUserWithEmailAndPassword(email, password)
+    // .then( res => {
+    //   const newUserInfo = res.user;
+    //   newUserInfo.error = '';
+    //   newUserInfo.success = true;
+    //   updateUserName(name);
+    //   return newUserInfo;
+    // })
+    // .catch( error => {
+    //   const newUserInfo = {};
+    //   newUserInfo.error = error.message;
+    //   newUserInfo.success = false;
+    //   newUserInfo.isSignedIn = true;
+    //   return newUserInfo;
+    // });
  }
 
  export const signInWithEmailAndPassword = (email, password) =>{
@@ -84,6 +86,7 @@ export const handleGoogleSignIn = () => {
       const newUserInfo = res.user;
       newUserInfo.error = '';
       newUserInfo.success = true;
+      newUserInfo.isSignedIn = true;
       return newUserInfo;
     })
     .catch(function(error) {

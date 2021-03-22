@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Image from '../../images/road1.jpg';
-import './Home.css';
-import vehicles from '../../fakeData/VehiclesData.json'; 
-import Vehicle from '../Vehicle/Vehicle';
+import './Header.css';
 import { Link, useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Home = () => {
+const Header = () => {
     const classes = useStyles();
 
     // const [teams, setTeams] = useState([]);
@@ -56,18 +53,9 @@ const Home = () => {
                 {/* <button onClick={handleProceedCheckout}>Login</button> */}
                 <Link to="/login">Login</Link>
             </nav>
-        </div>
-        <main>
-                <Container className={classes.container} maxWidth="xl">
-                    <Grid container spacing={3}>
-                        {vehicles.map((team) => (
-                            <Vehicle team={team} lg={4} sm={6} xs={12} spacing={2} ></Vehicle>
-                        ))}
-                    </Grid>
-                </Container>
-            </main>
-        </div>
+      </div>
+      </div>
     );
 };
 
-export default Home;
+export default Header;

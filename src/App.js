@@ -8,6 +8,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import NotFound from "./components/notFound/NotFound";
 import CheckOut from "./components/checkOut/CheckOut";
 import { createContext, useState } from 'react';
+import Header from "./components/Header/Header";
 
 export const UserContext = createContext();
 
@@ -27,6 +28,9 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
+          {/* <Route path="/checkout">
+            <CheckOut></CheckOut>
+          </Route> */}
           <PrivateRoute path="/checkout">
             <CheckOut></CheckOut>
           </PrivateRoute>

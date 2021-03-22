@@ -1,3 +1,8 @@
+# Travelling-Assistance
+A react app are developed by Omar Faruk Shakil as the part of programming hero's web development course assignment-9. This web apps works as a travelling assistance such that user can buy ticket from here.and he can able to compare the fare of vehicles among bike,car,bus or train.User see the distance between his location to destination in the map and make a decision for travelling.
+If someOne wants to know about the English premier league then you just provide him a link in below:
+###  
+Developed by: Eng. Omar Faruk Shakil.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

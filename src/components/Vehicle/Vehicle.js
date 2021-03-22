@@ -27,7 +27,7 @@ const Vehicle = (props) => {
 
     const cardStyle = useCardStyles();
     const { vehicle, image } = props.team;
-    console.log(props);
+    // console.log(props);
     return (
         < div >
             <Grid spacing={2} item lg={props.lg} sm={props.md} xs={props.sm}>
@@ -42,7 +42,7 @@ const Vehicle = (props) => {
                     </CardContent>
 
                     <CardActions>
-                        <Link to={`/login`}>
+                        <Link to={`/checkout`}>
                             <button  style={{fontSize:'20px',}}>Book Now</button>
                             {/* <Button>Explore..</Button> */}
                         </Link>

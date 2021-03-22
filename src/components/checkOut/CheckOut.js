@@ -1,34 +1,61 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import './checkOut.css';
-import { useContext } from 'react';
-import { UserContext } from '../../App';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import "./checkOut.css";
+import { useContext } from "react";
+import { UserContext } from "../../App";
 
 const CheckOut = () => {
+    // var date = new Date();
+
+    const [travellingData,setTravellingData]=useState({});
+    const [showForm,setShowForm] = useState(true)
   const { register, handleSubmit, watch, errors } = useForm();
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  const onSubmit = data => {
-      console.log('form submitted', data)
-    };
+
+  const onSubmit = (data) => {
+    console.log("form submitted", data);
+    setTravellingData(data);
+    setShowForm(!formShow); 
+  };
+
 
   console.log(watch("example")); // watch input value by passing the name of it
-
+let formShow = true;
   return (
-    <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
-      <input name="name" defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Your Name" />
-      {errors.name && <span className="error">Name is required</span>}
-     
-      <input name="email" defaultValue={loggedInUser.email} ref={register({ required: true })}  placeholder="Your Email"/>
-      {errors.email && <span className="error">Email is required</span>}
-     
-      <input name="address" ref={register({ required: true })}  placeholder="Your Address" />
-      {errors.address && <span className="error">Address is required</span>}
-     
-      <input name="phone" ref={register({ required: true })}  placeholder="Your Phone Number"/>
-      {errors.phone && <span className="error">Phone Number is required</span>}
-      
-      <input type="submit" />
-    </form>
+    <div>{showForm &&
+      <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
+        
+        <input
+          name="location"
+          defaultValue="Dhanmondi"
+          ref={register({ required: true })}
+          placeholder="Your current location"
+        /><small>Pick From:</small>
+        {errors.name && <span className="error">Location is required</span>}
+
+        
+        <input
+          name="destination"
+          defaultValue="Gazipur"
+          ref={register({ required: true })}
+          placeholder="Your destination"
+        />
+        <small>Pick To:</small>
+        {errors.email && <span className="error">Destination is required</span>}
+
+        <input type="submit" value="Search" />
+      </form>
+    
+    }
+    { (!showForm) &&
+      <div>
+          <h2>Current Location:{travellingData.location}</h2>
+          <h2>Destination:{travellingData.destination}</h2>
+          <h4>Traveller:{loggedInUser.name}</h4>
+          {/* <h5>Date: {date}</h5> */}
+      </div>
+      }
+ </div>
   );
 };
 
